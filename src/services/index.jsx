@@ -117,6 +117,15 @@ export default class ProductstoreService {
             coverImage: 'https://scoop.co.za/download/marketing/images/AIR-D530LW.jpg',
             quantity: 231,
         },
+        {
+            id: 14,
+            title: 'RD-5G30-LW',
+            details: 'Ubiquiti 5GHz AirMax Dish 30dBi Light Weight PtP | RD-5G30-LW',
+            category: 'Спутниковая тарелка',
+            price: 4734.78,
+            coverImage: 'https://scoop.co.za/download/marketing/images/AIR-D530LW.jpg',
+            quantity: 231,
+        },
 
     ]
     getProduct(){
