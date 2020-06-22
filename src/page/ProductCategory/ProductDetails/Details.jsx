@@ -1,5 +1,6 @@
 import React from "react";
 import styled, {css} from 'styled-components';
+import {string, shape, number} from "prop-types";
 
 import {Category, Price, Title} from '../ProductList/styled'
 
@@ -65,3 +66,15 @@ const Details = ({productId: {coverImage, quantity, title, price, id, details, c
 }
 
 export default Details;
+
+Details.propTypes = {
+    productId: shape({
+        coverImage: string,
+        quantity: number,
+        title: string,
+        price: number,
+        id: number,
+        details: string,
+        category: string
+    })
+}

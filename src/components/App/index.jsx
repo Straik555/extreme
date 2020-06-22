@@ -5,6 +5,7 @@ import styled, {css} from "styled-components";
 import ProductCategory from '../../page/ProductCategory';
 import ProductDetails from '../../page/ProductCategory/ProductDetails'
 import Header from "../Header";
+import Entrance from '../../page/Entrance';
 
 const Banner = styled.div`
   width: 100%;
@@ -31,6 +32,8 @@ const App = () => {
                 <Header />
                 <BannerWrapp>
                     <Switch>
+                        <Route exact path="/" render={() => (<Redirect to="/main"/>)}/>
+                        <Route path='/main' exact component={Entrance} />
                         <Route path='/category' exact component={ProductCategory} />
                         <Route path='/category/details/'  component={ProductDetails} />
                     </Switch>

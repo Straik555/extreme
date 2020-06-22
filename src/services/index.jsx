@@ -117,6 +117,7 @@ export default class ProductstoreService {
             coverImage: 'https://scoop.co.za/download/marketing/images/AIR-D530LW.jpg',
             quantity: 231,
         },
+
     ]
     getProduct(){
         return new Promise((resolve, reject) => {

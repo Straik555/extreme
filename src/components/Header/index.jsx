@@ -22,7 +22,6 @@ const Logo = styled.h1`
    font-weight: bold;
    color: white;
    text-decoration: none;
-   cursor:pointer;
 `;
 
 const Right = styled.div`

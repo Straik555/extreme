@@ -1,7 +1,8 @@
 import React from "react";
 import ProductList from "../ProductList";
-
+import {array} from 'prop-types';
 import styled from 'styled-components';
+
 import {Title} from "../ProductList/styled";
 
 const Banner = styled.div`
@@ -20,7 +21,7 @@ const BannerWrap = styled.div`
 `;
 
 const Similar = ({randomItem}) => {
-    console.log('random', randomItem)
+
     return (
         <Banner>
             <Title size={'20px'} color={'#59abb4'}>Похожие товары</Title>
@@ -45,3 +46,7 @@ const Similar = ({randomItem}) => {
 }
 
 export default Similar;
+
+Similar.propTypes = {
+    randomItem: array,
+}

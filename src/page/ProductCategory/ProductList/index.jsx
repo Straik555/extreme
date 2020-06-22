@@ -1,5 +1,5 @@
 import React from 'react';
-import {string} from "prop-types";
+import {string, number} from "prop-types";
 
 import {
     Banner,
@@ -14,7 +14,7 @@ import {
 const ProductList = ({id, title, category, price, coverImage, productId}) => {
 
     return (
-        <Banner to={`./category/details/${title}`} onClick={() => productId(id)}>
+        <Banner to={`/category/details/${title}`} onClick={() => productId(id)}>
             <Image>
                 <img src={coverImage}/>
             </Image>
@@ -34,6 +34,6 @@ export default ProductList;
 ProductList.propTypes = {
     title: string.isRequired,
     category: string.isRequired,
-    price: string.isRequired,
+    price: number.isRequired,
     coverImage: string.isRequired,
 }

@@ -1,12 +1,13 @@
 import React from "react";
 import {connect} from 'react-redux';
+import {array, object} from "prop-types";
 
 import Details from "./Details";
 import Similar from './Similar';
 import {compose} from "../../../Utils";
 import {withProductstoreService} from '../../../components/Hoc'
 
-const ProductDetails = ({product, productId, randomItem}) => {
+const ProductDetails = ({productId, randomItem}) => {
     return (
         <>
             <Details productId={productId} />
@@ -27,3 +28,8 @@ export default compose(
     withProductstoreService(),
     connect(mapStateToProps, mapDispatchToProps)
 )(ProductDetails);
+
+ProductDetails.propTypes = {
+    productId: object,
+    randomItem: array
+}
