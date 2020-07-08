@@ -21,6 +21,7 @@ const Banner = styled.div`
       margin-bottom: 10px;
       padding-left: 10px;
       
+      
       ${({theme}) => css`
         border: 1px solid ${theme.colors.lightSilver};
         
