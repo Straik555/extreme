@@ -1,19 +1,33 @@
 import React from "react";
 import styled, {css} from 'styled-components';
 import {string, shape, number} from "prop-types";
-
+import {customMedia} from "../../../styles/customMedia";
+import media from "styled-media-query";
 import {Category, Price, Title} from '../ProductList/styled'
+
+const Wrapper = styled.div`
+  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 
 const Banner = styled.div`
   width: 100%;
   display: flex;
+  justify-content: center;
+    
+  ${media.lessThan('medium')`
+    flex-direction: column;
+  `}
 `;
 
 const LeftBanner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+
   width: 50%;
   height: 500px;
   border-radius: 5px;
@@ -21,9 +35,11 @@ const LeftBanner = styled.div`
   ${({theme}) => css`
     border: 1px solid ${theme.colors.lightSilver};
   `} 
-  & img{
-    width: 500px;
-  }
+  ${media.lessThan('medium')`
+    width: 90%;
+    margin: 0 5%;
+  `}
+
 `;
 
 const RightBanner = styled.div`
@@ -32,6 +48,22 @@ const RightBanner = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  
+  ${media.lessThan('medium')`
+    width: 85%;
+    padding: 30px;
+  `}
+`;
+
+const Image = styled.img`
+  width: 500px;
+    
+    ${customMedia.lessThan('lessBig')`
+        width: 390px;
+    `}
+    ${media.lessThan('medium')`
+        width: 300px;
+    `}
 `;
 
 const HeaderBanner = styled.h1`
@@ -51,7 +83,7 @@ const Details = ({productId: {coverImage, quantity, title, price, id, details, c
             <HeaderBanner>Товар</HeaderBanner>
             <Banner>
                 <LeftBanner>
-                    <img src={coverImage} />
+                    <Image src={coverImage} />
                 </LeftBanner>
                 <RightBanner>
                     <Category>{category}</Category>

@@ -6,23 +6,22 @@ import ProductCategory from '../../page/ProductCategory';
 import ProductDetails from '../../page/ProductCategory/ProductDetails'
 import Header from "../Header";
 import Entrance from '../../page/Entrance';
+import CheckIn from "../../page/Entrance/checkIn";
+import Footer from "../Footer";
 
 const Banner = styled.div`
-  width: 100%;
-  ${({theme}) => css`
-    background: ${theme.colors.greenHeader};
-  `}
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 `;
 
-const BannerWrapp = styled.div`
+const BannerWrap = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  padding: 40px 80px;
+  flex: 1;
+  min-height: 0;
+  padding: 40px 0;
   margin: 0 auto;
-  
-  ${({theme}) => css`
-    background: ${theme.colors.light};
-  `}
 `;
 
 const App = () => {
@@ -30,14 +29,16 @@ const App = () => {
         <Router>
             <Banner>
                 <Header />
-                <BannerWrapp>
+                <BannerWrap>
                     <Switch>
                         <Route exact path="/" render={() => (<Redirect to="/main"/>)}/>
                         <Route path='/main' exact component={Entrance} />
+                        <Route path='/register' exact component={CheckIn} />
                         <Route path='/category' exact component={ProductCategory} />
                         <Route path='/category/details/'  component={ProductDetails} />
                     </Switch>
-                </BannerWrapp>
+                </BannerWrap>
+                <Footer />
             </Banner>
         </Router>
     )

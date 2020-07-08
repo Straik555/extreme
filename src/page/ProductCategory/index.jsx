@@ -1,76 +1,32 @@
 import React, {useEffect} from 'react';
 import {bindActionCreators} from "redux";
 import {connect} from 'react-redux';
-import {array, func} from 'prop-types';
-import styled, {css} from 'styled-components';
-import media from 'styled-media-query';
 
+import Spinner from "../../components/Spiner";
 import {compose} from "../../Utils";
 import {withProductstoreService} from '../../components/Hoc'
 import {fetchProduct, productclickItem} from "../../actions";
+import Paginator from "./Paginator";
 
-import ProductList from "./ProductList";
+import {array, func} from "prop-types";
 
-const Banner = styled.div`
-  max-width: 1400px;
-  margin: 0 auto;
-`;
+const ProductCategory = ({product, loading, fetchProduct, productIdClick}) =>{
 
-const Title = styled.h1`
-  display: flex;
-  justify-content: center;
-  font-size: 45px;
-  line-height: 100%;
-  margin-bottom: 40px;
-  ${({theme}) => css`
-    color: ${theme.colors.greenHeader}
-  `}
-`;
-
-const Wrapper = styled.div`
-
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const ProductCategory = ({product, fetchProduct, productId}) =>{
     useEffect(() => {
         fetchProduct()
     }, [])
 
-        return (
-            <Banner>
-                <Title>Наша продукция</Title>
-                <Wrapper>
-                    {
-                        product.map((item) => {
-                            return (
-                                <ProductList
-                                    key={item.id}
-                                    id={item.id}
-                                    title={item.title}
-                                    category={item.category}
-                                    price={item.price}
-                                    coverImage={item.coverImage}
-                                    productId={productId}
-                                />
-                            )
-                        })
-                    }
-                </Wrapper>
-            </Banner>
-        )
-
+        return loading ? <Paginator todos={product} productIdClick={productIdClick}/> : <Spinner />
 }
 
-const mapStateToProps = ({productList: {product}}) => {
-    return {product}
+const mapStateToProps = ({productList: {product, loading}}) => {
+    return {product, loading}
 }
 
 const mapDispatchToProps = (dispatch, {productstoreService}) => {
     return bindActionCreators({
         fetchProduct: fetchProduct(productstoreService),
-        productId: productclickItem,
+        productIdClick: productclickItem,
         }, dispatch)
 }
 
@@ -79,8 +35,8 @@ export default compose(
     connect(mapStateToProps, mapDispatchToProps)
 )(ProductCategory);
 
-ProductList.propTypes = {
+ProductCategory.propTypes = {
     product: array,
     fetchProduct: func,
-    productId: func,
+    productIdClick: func,
 }

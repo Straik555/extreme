@@ -1,5 +1,5 @@
 import React from 'react';
-import {string, number} from "prop-types";
+import {string, number, object} from "prop-types";
 
 import {
     Banner,
@@ -11,10 +11,10 @@ import {
     Price
 } from './styled.jsx'
 
-const ProductList = ({id, title, category, price, coverImage, productId}) => {
+const ProductList = ({id, title, category, price, coverImage, productIdClick}) => {
 
     return (
-        <Banner to={`/category/details/${title}`} onClick={() => productId(id)}>
+        <Banner to={`/category/details/${title}`} onClick={() => productIdClick(id)}>
             <Image>
                 <img src={coverImage}/>
             </Image>
@@ -36,4 +36,5 @@ ProductList.propTypes = {
     category: string.isRequired,
     price: number.isRequired,
     coverImage: string.isRequired,
+    productId: object,
 }

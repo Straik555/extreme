@@ -1,29 +1,29 @@
 import React from "react";
 import ProductList from "../ProductList";
-import {array} from 'prop-types';
-import styled from 'styled-components';
+import {array, func, object} from 'prop-types';
+import styled, {css} from 'styled-components';
 
-import {Title} from "../ProductList/styled";
-
-const Banner = styled.div`
-  padding-top: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  & h1{
-    text-align: center;
-  }
+const Title = styled.h1`
+  line-height: 150%;
+  text-align: center;
+  margin-top: 50px;
+   
+  ${({theme, size, color}) => css`
+    color: ${color || theme.colors.titleDark};
+    font-size: ${size};
+  `}
 `;
 
 const BannerWrap = styled.div`
   display: flex;
   padding-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
-const Similar = ({randomItem}) => {
-
+const Similar = ({randomItem, productIdClick}) => {
     return (
-        <Banner>
+        <>
             <Title size={'20px'} color={'#59abb4'}>Похожие товары</Title>
             <BannerWrap>
                 {
@@ -36,12 +36,13 @@ const Similar = ({randomItem}) => {
                                 category={item.category}
                                 price={item.price}
                                 coverImage={item.coverImage}
+                                productIdClick={productIdClick}
                             />
                         )
                     })
                 }
             </BannerWrap>
-        </Banner>
+        </>
     )
 }
 
@@ -49,4 +50,5 @@ export default Similar;
 
 Similar.propTypes = {
     randomItem: array,
+    productId: object,
 }

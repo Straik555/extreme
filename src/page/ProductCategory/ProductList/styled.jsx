@@ -1,4 +1,6 @@
 import styled, {css} from 'styled-components';
+import media from 'styled-media-query';
+import {customMedia} from "../../../styles/customMedia";
 import {Link} from "react-router-dom";
 
 const Banner = styled(Link)`
@@ -13,6 +15,7 @@ const Banner = styled(Link)`
   transition-delay: .1s;
   cursor: pointer;
   
+  
   :hover{
     box-shadow: 0 0 10px rgb(173, 173, 173);
   }
@@ -20,6 +23,19 @@ const Banner = styled(Link)`
   ${({theme}) => css`
     border: 1px solid ${theme.colors.lightSilver};
   `} 
+  ${customMedia.lessThan('more')`
+    width: 28%;
+  `}
+  
+  ${customMedia.lessThan('lessBig')`
+    width: 45%;
+  `}
+  ${media.lessThan('medium')`
+    width: 42%;
+  `}
+    ${customMedia.lessThan('lessMedium')`
+    width: 75%;
+  `}
 `;
 
 const Image = styled.div`

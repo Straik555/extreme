@@ -33,7 +33,15 @@ const productclickItem = (productId) => {
     }
 }
 
+const singInUser = (item) => {
+    return {
+        type: 'SING_IN_USER',
+        payload: item
+    }
+}
+
 export {
     fetchProduct,
-    productclickItem
+    productclickItem,
+    singInUser
 }
