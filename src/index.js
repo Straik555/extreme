@@ -31,8 +31,7 @@ ReactDOM.render(
     //         </ThemeProvider>
     //     </ProductstoreServiceProvider>
     // </Provider>
-    <h1>Hell</h1>,
-    <p>No</p>
+    <h1>Hell</h1>
         ,
   document.getElementById('root')
 );
