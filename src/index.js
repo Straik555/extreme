@@ -22,7 +22,7 @@ const firebaseConfig = {
 
 const productstoreService = new ProductstoreService();
 firebase.initializeApp(firebaseConfig);
-
+console.log('s')
 ReactDOM.render(
     <Provider store={store} >
         <ProductstoreServiceProvider value={productstoreService} >
@@ -30,8 +30,7 @@ ReactDOM.render(
                <App />
             </ThemeProvider>
         </ProductstoreServiceProvider>
-    </Provider>
-        ,
+    </Provider>,
   document.getElementById('root')
 );
 
