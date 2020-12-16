@@ -24,15 +24,13 @@ const productstoreService = new ProductstoreService();
 firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
-    // <Provider store={store} >
-    //     <ProductstoreServiceProvider value={productstoreService} >
-    //         <ThemeProvider theme={theme}>
-    //            <App />
-    //         </ThemeProvider>
-    //     </ProductstoreServiceProvider>
-    // </Provider>
-    <h1>Hell</h1>
-        ,
+    <Provider store={store} >
+        <ProductstoreServiceProvider value={productstoreService} >
+            <ThemeProvider theme={theme}>
+               <App />
+            </ThemeProvider>
+        </ProductstoreServiceProvider>
+    </Provider>,
   document.getElementById('root')
 );
 
