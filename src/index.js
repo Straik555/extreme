@@ -24,7 +24,7 @@ const productstoreService = new ProductstoreService();
 firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
-    <p>do</p>,
+    <p>asdasdasdas</p>,
   document.getElementById('root')
 );
 
