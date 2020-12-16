@@ -25,7 +25,7 @@ firebase.initializeApp(firebaseConfig);
 
 
 ReactDOM.render(
-    <p>d</p>,
+    <p>do</p>,
   document.getElementById('root')
 );
 
