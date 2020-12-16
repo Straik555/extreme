@@ -28,7 +28,6 @@ ReactDOM.render(
         <ProductstoreServiceProvider value={productstoreService} >
             <ThemeProvider theme={theme}>
                <App />
-               <p>dasds</p>
             </ThemeProvider>
         </ProductstoreServiceProvider>
     </Provider>
