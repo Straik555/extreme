@@ -23,7 +23,6 @@ const firebaseConfig = {
 const productstoreService = new ProductstoreService();
 firebase.initializeApp(firebaseConfig);
 
-
 ReactDOM.render(
     <p>do</p>,
   document.getElementById('root')
