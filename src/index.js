@@ -23,8 +23,6 @@ const firebaseConfig = {
 const productstoreService = new ProductstoreService();
 firebase.initializeApp(firebaseConfig);
 
-const x = 100;
-
 ReactDOM.render(
     <Provider store={store} >
         <ProductstoreServiceProvider value={productstoreService} >
