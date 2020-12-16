@@ -25,13 +25,7 @@ firebase.initializeApp(firebaseConfig);
 
 
 ReactDOM.render(
-    <Provider store={store} >
-        <ProductstoreServiceProvider value={productstoreService} >
-            <ThemeProvider theme={theme}>
-               <App />
-            </ThemeProvider>
-        </ProductstoreServiceProvider>
-    </Provider>,
+    <p>d</p>,
   document.getElementById('root')
 );
 
